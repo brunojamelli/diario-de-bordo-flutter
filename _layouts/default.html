@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title }} | {{ site.title }}</title>
+    <link rel="stylesheet" href="{{ '/assets/styles.css' | relative_url }}">
+</head>
+<body>
+    <div class="container">
+        <!-- Menu lateral -->
+        <aside class="sidebar">
+            <h1>{{ site.title }}</h1>
+            <nav>
+                <ul>
+                    <li><a href="{{ '/' | relative_url }}">Início</a></li>
+                    <li><a href="{{ '/about' | relative_url }}">Sobre</a></li>
+                </ul>
+                <h2>Posts</h2>
+                <ul>
+                    {% for post in site.posts %}
+                        <li>
+                            <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Conteúdo principal -->
+        <main class="content">
+            {{ content }}
+        </main>
+    </div>
+</body>
+</html>
